@@ -1,147 +1,164 @@
+:root {
+  --cyan: hsl(178, 100%, 50%);
+  --blue: hsl(217, 54%, 11%);
+  --blue-light: hsl(216, 50%, 16%);
+  --blue-lighter: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+  --grayish-blue: hsl(215, 51%, 70%);
+  --font-outfit: "Outfit", sans-serif;
+}
+
 * {
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
 
 body {
-    background-color: hsl(217, 54%, 11%);
+  background-color: var(--blue);
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-main {
-    width: 100%;
-    height: auto;
+.card {
+  background-color: var(--blue-light);
+  width: 90%;
+  max-width: 340px;
+  padding: 20px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-#card {
-    width: 300px;
-    height: 520px;
-    background-color: hsl(216, 50%, 16%);
-    margin: 0 auto;
-    margin-top: 20px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.4)
+.card__img-container {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.img-card {
-    width: 90%;
-    height: 270px;
-    margin-top: 20px;
-    position: relative;
+.card__img-equilibrium {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.img-card img {
-    max-width: 100%;
-    border-radius: 8px;
+.card__img-overlay {
+  background-color: var(--cyan);
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 300ms;
 }
 
-.img-view {
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: hsl(178, 100%, 50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    opacity: 0;
-    transition: all 300ms; /*ease-in-out*/
+.card__img-overlay:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
 
-.img-view:hover {
-    opacity: 0.5;
+.product {
+  font-family: var(--font-outfit);
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.nft-description {
-    width: 90%;
-    padding: 10px 0px;
+.product-description {
+  margin-bottom: 20px;
+  color: var(--white);
+  font-family: var(--font-outfit);
 }
 
-.nft-description a {
-    color: hsl(0, 0%, 100%);
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    transition: all 300ms;
+.product-description__title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  transition: all 300ms;
 }
 
-.nft-description a:hover {
-    color: hsl(178, 100%, 50%);
+.product-description__title:hover {
+  color: var(--cyan);
+  cursor: pointer;
 }
 
-.nft-description p {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 300;
-    color: hsl(215, 51%, 70%);
+.product-description__body {
+  margin-top: 10px;
+  color: var(--grayish-blue);
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.5;
 }
 
-.data {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid hsl(215, 32%, 27%);
-    padding: 20px 0px;
-    font-family: 'Outfit', sans-serif;
+.product-price,
+.product-price__ethereum,
+.product-price__time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.value-ethereum {
-    display: flex;
-    color: hsl(178, 100%, 50%);
+.product-price {
+  justify-content: space-between;
 }
 
-.value-ethereum img {
-    width: 11px;
-    height: 18px;
-    margin-right: 5px;
+.product-price__ethereum {
+  color: var(--cyan);
+  font-weight: 600;
+  font-size: 1rem;
 }
 
-.time {
-    display: flex;
-    color: hsl(215, 51%, 70%);
+.product-price__time {
+  color: var(--grayish-blue);
+  font-size: 1rem;
+  font-weight: 300;
 }
 
-.time img {
-    width: 17px;
-    height: 17px;
-    margin-right: 5px;
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--blue-lighter);
+  margin-bottom: 20px;
 }
 
 .profile {
-    width: 90%;
-    height: 35px;
-    display: flex;
-    padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.profile img {
-    max-width: 30px;
-    border: 2px solid hsl(0, 0%, 100%);
-    border-radius: 100%;
-    margin-right: 15px;
+.profile__img {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--white);
+  border-radius: 50%;
 }
 
-.profile p{
-    font-family: 'Outfit', sans-serif;
-    padding: 10px 0px;
+.profile__text {
+  font-family: var(--font-outfit);
+  color: var(--grayish-blue);
+  font-size: 1rem;
+  font-weight: 300;
 }
 
-.profile p {
-    color: hsl(215, 51%, 70%);
+.profile__user {
+  color: var(--white);
+  transition: all 300ms;
 }
 
-.profile .user {
-    color:hsl(0, 0%, 100%);
-    transition: all 300ms;
-}
-
-.profile .user:hover {
-    color: hsl(178, 100%, 50%);
-    cursor: pointer;
+.profile__user:hover {
+  color: var(--cyan);
+  cursor: pointer;
 }
